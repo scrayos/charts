@@ -276,6 +276,17 @@ Set redis port
 {{- end -}}
 
 {{/*
+Set redis username
+*/}}
+{{- define "sentry.redis.username" -}}
+{{- if .Values.redis.enabled -}}
+{{ .Values.redis.username }}
+{{- else -}}
+{{ .Values.externalRedis.username }}
+{{- end -}}
+{{- end -}}
+
+{{/*
 Set redis password
 */}}
 {{- define "sentry.redis.password" -}}
